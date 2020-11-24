@@ -137,7 +137,9 @@ footer {
     color: #fff;
     border-radius: 2rem;
     font-family: 'Source Sans Pro';
-    font-size: .9rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 .button:hover {
     background-image: linear-gradient(to right, rgb(68, 155, 226), rgb(71, 133, 224));
