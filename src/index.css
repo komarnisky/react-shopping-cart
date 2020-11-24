@@ -1,6 +1,8 @@
 html {
-    font-size: 18px;
     box-sizing: border-box;
+    font-size: 18px;
+}
+body, input, select, textarea, button {
     font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 }
 
@@ -36,7 +38,11 @@ header a {
     text-decoration: none;
 }
 
-header a:hover {
+a:link, a:link:visited, a:visited {
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+}
+a:link:hover, header a:hover, a:visited:hover {
     color: rgb(42, 115, 224);
 }
 
@@ -59,4 +65,80 @@ header,
 main,
 footer {
     padding: .6rem 2rem;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+.main {
+    flex: 3 60rem;
+}
+.sidebar {
+    flex: 1 20rem;
+}
+
+/* products */
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+.products li {
+    flex: 1 1 13rem;
+    height: auto;
+    padding: 1rem;
+    margin: 1rem;
+}
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.product > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.product > a > p {
+    width: 100%;
+    text-align: left;
+}
+.product img {
+    max-width: 15rem;
+    max-height: 15rem;
+}
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-price div,
+.product-price button {
+    text-align: center;
+}
+.product-price div {
+    font-size: 1.5rem;
+}
+
+.button {
+    padding: .6rem 1.4rem;
+    background-image: linear-gradient(to right, rgb(42, 142, 224), rgb(42, 115, 224));
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    border-radius: 2rem;
+    font-family: 'Source Sans Pro';
+    font-size: .9rem;
+}
+.button:hover {
+    background-image: linear-gradient(to right, rgb(68, 155, 226), rgb(71, 133, 224));
 }
