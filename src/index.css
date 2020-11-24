@@ -140,6 +140,7 @@ footer {
     font-size: .8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 .button:hover {
     background-image: linear-gradient(to right, rgb(68, 155, 226), rgb(71, 133, 224));
@@ -152,4 +153,62 @@ footer {
     margin: 1rem;
     border-bottom: 1px solid rgb(236, 236, 236);
     justify-content: space-between;
+}
+
+/* Cart */
+.cart-item {
+    width: 100%;
+    display: flex;
+}
+.cart-item-image {
+    width: 70px;
+}
+.cart-item-image img {
+    height: auto;
+    width: 70px;
+}
+.cart-item-meta {
+    padding-left: 15px;
+    flex-grow: 1;
+}
+.cart-item-meta span {
+    width: 100%;
+    display: inline-block;
+    
+}
+.bolder {
+    font-weight: 600;
+}
+.cart-item-total-price {
+    color: #979797;
+}
+.cart-item-remove {
+    color: rgb(32, 32, 32);
+    cursor: pointer;
+}
+.cart-item-remove:hover {
+    color: rgb(42, 142, 224);
+}
+
+.cart-summary {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cart-controls {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-controls button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.button--secondary {
+    background-image: linear-gradient(to right, rgb(202, 202, 202), rgb(175, 175, 175));
+}
+.button--secondary:hover {
+    background-image: linear-gradient(to right, rgb(212, 212, 212), rgb(185, 185, 185));
 }
