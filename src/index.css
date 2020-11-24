@@ -140,6 +140,7 @@ footer {
     font-size: .8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 .button:hover {
     background-image: linear-gradient(to right, rgb(68, 155, 226), rgb(71, 133, 224));
