@@ -1,6 +1,9 @@
 import React from 'react';
+
 import Products from './components/Products';
 import Filter from './components/Filter';
+import Cart from './components/Cart';
+
 import data from './data.json';
 
 class App extends React.Component {
@@ -11,7 +14,8 @@ class App extends React.Component {
     this.state = {
       products: data.products,
       size: "ALL",
-      sort: ""
+      sort: "",
+      cartItems: []
     }
 
   }
@@ -27,6 +31,45 @@ class App extends React.Component {
     this.setState(prevState => ({
       ...prevState,
       size: event.target.value,
+    }))
+  }
+
+  addToCart = (product) => {
+    const cartItems = this.state.cartItems.slice();
+
+    let alreadyInCart = false;
+    cartItems.forEach(item => {
+      
+      if (item._id === product._id) {
+        item.quantity++;
+        alreadyInCart = true;
+      }
+
+    });
+
+    if (!alreadyInCart) {
+      cartItems.push({...product, quantity: 1});
+    }
+
+    this.setState(prevState => ({
+      ...prevState,
+      cartItems
+    }))
+  }
+
+  deleteCartItem = (itemId) => {
+
+    this.setState(prevState => ({
+      ...prevState,
+      cartItems: prevState.cartItems.filter(item => (item._id !== itemId))
+    }))
+
+  }
+
+  clearCart = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      cartItems: []
     }))
   }
 
@@ -65,6 +108,7 @@ class App extends React.Component {
           <div className="content">
 
             <div className="main">
+              
               <Filter
                 count={this.state.products.length}
                 size={this.state.size}
@@ -73,11 +117,21 @@ class App extends React.Component {
                 onFilterProducts={this.filterProducts}
               ></Filter>
 
-              <Products products={filteredProducts}></Products>
+              <Products
+                products={filteredProducts}
+                onAddToCart={this.addToCart}
+              ></Products>
+
             </div>
 
             <div className="sidebar">
-              sidebar
+              
+              <Cart
+                cartItems={this.state.cartItems}
+                onDeleteCartItem={this.deleteCartItem}
+                onClearCart={this.clearCart}
+              ></Cart>
+
             </div>
 
           </div>
