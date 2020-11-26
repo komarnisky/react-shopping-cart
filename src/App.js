@@ -21,20 +21,25 @@ class App extends React.Component {
   }
 
   sortProducts = (event) => {
+
     this.setState(prevState => ({
       ...prevState,
       sort: event.target.value,
     }))
+
   }
 
   filterProducts = (event) => {
+
     this.setState(prevState => ({
       ...prevState,
       size: event.target.value,
     }))
+
   }
 
   addToCart = (product) => {
+
     const cartItems = this.state.cartItems.slice();
 
     let alreadyInCart = false;
@@ -55,6 +60,7 @@ class App extends React.Component {
       ...prevState,
       cartItems
     }))
+
   }
 
   deleteCartItem = (itemId) => {
@@ -67,10 +73,12 @@ class App extends React.Component {
   }
 
   clearCart = () => {
+
     this.setState(prevState => ({
       ...prevState,
       cartItems: []
     }))
+    
   }
 
 
