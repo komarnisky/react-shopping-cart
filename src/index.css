@@ -212,3 +212,31 @@ footer {
 .button--secondary:hover {
     background-image: linear-gradient(to right, rgb(212, 212, 212), rgb(185, 185, 185));
 }
+
+.form-container {
+    list-style: none;
+    padding: 0;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 15px;
+}
+.form-container input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 40px;
+    border: none;
+    background-color: rgb(236, 236, 236);
+    border: 2px solid rgb(236, 236, 236);
+    outline: none;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 15px;
+}
+.form-container input:focus {
+    background-color: rgb(245, 245, 245);
+
+}
+.form-container .controls {
+    text-align:right;
+}
