@@ -11,13 +11,16 @@ class App extends React.Component {
   constructor () {
     super();
 
+    const cartItemsStorage = JSON.parse(localStorage.getItem('cartItems'))
+
+    const cartItems = cartItemsStorage ? cartItemsStorage : [];
+
     this.state = {
       products: data.products,
       size: "ALL",
       sort: "",
-      cartItems: []
+      cartItems
     }
-
   }
 
   sortProducts = (event) => {
@@ -55,15 +58,19 @@ class App extends React.Component {
       ...prevState,
       cartItems
     }))
+
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }
 
   deleteCartItem = (itemId) => {
+    const cartItems = this.state.cartItems.filter(item => (item._id !== itemId));
 
     this.setState(prevState => ({
       ...prevState,
-      cartItems: prevState.cartItems.filter(item => (item._id !== itemId))
+      cartItems
     }))
 
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }
 
   clearCart = () => {
@@ -71,8 +78,14 @@ class App extends React.Component {
       ...prevState,
       cartItems: []
     }))
+
+    localStorage.setItem('cartItems', '[]');
   }
 
+  createOrder = order => {
+    alert('creating order...');
+    console.log(order);
+  }
 
 
   render () {
@@ -130,6 +143,7 @@ class App extends React.Component {
                 cartItems={this.state.cartItems}
                 onDeleteCartItem={this.deleteCartItem}
                 onClearCart={this.clearCart}
+                onCreateOrder={this.createOrder}
               ></Cart>
 
             </div>
